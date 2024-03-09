@@ -1,0 +1,14 @@
+version: '3'
+services:
+  get_transaction:
+    build: ./images/thalos_get_transaction
+    ports:
+      - "80:8000"
+    depends_on:
+      - redis
+  thalos:
+    build: ./images/thalos
+    depends_on:
+      - redis
+  redis:
+    image: 'redis:7'
